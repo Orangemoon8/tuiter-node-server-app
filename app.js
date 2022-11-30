@@ -6,10 +6,16 @@ import TuitsController
     from "./controllers/tuits/tuits-controller.js";
 import mongoose from "mongoose";
 
-// 最开始只在local运行的时候 localmongoose.connect('mongodb://localhost:27017/tuiter');
-// 设然后设置environment variable DB_CONNECTION_STRING=mongodb+srv://8orangemoon:<password>@cluster0.jnidktq.mongodb.net/?retryWrites=true&w=majority
-const CONNECTION_STRING = process.env.DB_CONNECTION_STRING
-    || 'mongodb://localhost:27017/tuiter'
+// localmongoose.connect('mongodb://localhost:27017/tuiter');
+// remote connection: mongodb+srv://8orangemoon:753951@cluster0.jnidktq.mongodb.net/?retryWrites=true&w=majority
+// console.log('environment variable is the following')
+console.log(process.env.DB_CONNECTION_STRING)
+
+const CONNECTION_STRING = 'mongodb+srv://alice:alice123@cluster0.jnidktq.mongodb.net/?retryWrites=true&w=majority'
+// const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://localhost:27017/tuiter'
+
+console.log('current connection path is the following')
+console.log(CONNECTION_STRING);
 
 mongoose.connect(CONNECTION_STRING);
 
